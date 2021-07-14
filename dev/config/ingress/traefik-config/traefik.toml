@@ -1,0 +1,30 @@
+[api]
+  dashboard = true
+  insecure = true
+
+[providers.kubernetesCRD]
+  namespaces = []
+
+[accessLog]
+[log]
+  level = "ERROR"
+
+[entryPoints]
+  [entryPoints.web]
+    address = ":80"
+  [entryPoints.web-secure]
+    address = ":443"
+
+# Enable ACME (Let's Encrypt): automatic SSL.
+[certificatesResolvers.letsencryptresolver.acme]
+  email = "emejia@edisaac.pe"
+  storage = "/app/traefik/certs/acme/acme.json"
+  #staging acme server 
+  #caserver="https://acme-staging-v02.api.letsencrypt.org/directory"
+  [certificatesResolvers.letsencryptresolver.acme.httpChallenge]
+    # used during the challenge
+    entryPoint = "web"
+
+[providers.file]
+  directory = "/app/traefik/dinamic"
+  watch = true

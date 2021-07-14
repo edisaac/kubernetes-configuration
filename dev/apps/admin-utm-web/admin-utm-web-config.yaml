@@ -1,0 +1,11 @@
+apiVersion: "v1"
+kind: "ConfigMap"
+metadata:
+  name: "adm-utm-web-config"
+  labels:
+    app: "adm-utm-web"
+data:
+  VUE_APP_KEYCLOAK_URL: "https://ssodev.edisaac.pe/auth/"
+  VUE_APP_KEYCLOAK_REALM: "dev"
+  VUE_APP_KEYCLOAK_CLIENT_ID: "app-adm-utm"
+  VUE_APP_API_URL: "https://wscomercialdev.edisaac.pe/admin-utm-api"

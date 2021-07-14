@@ -1,0 +1,26 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: adm-utm-web-ingress
+spec:
+  entryPoints:
+    - web-secure
+  routes:
+    - match: Host(`ssodev.edisaac.pe`) && PathPrefix(`/adm-utm-web/`)
+      kind: Rule
+      services:
+        - name: adm-utm-web
+          port: 80
+      middlewares:
+        - name: adm-utm-web-middleware
+  tls:
+    secretName: edisaac-tls-secret
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: adm-utm-web-middleware
+spec:
+  replacePathRegex:
+    regex: ^/adm-utm-web(.*)
+    replacement: $1

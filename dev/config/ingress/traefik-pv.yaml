@@ -1,0 +1,26 @@
+apiVersion: "v1"
+kind: "PersistentVolume"
+metadata:
+  name: "traefik-volumen"
+spec:
+  capacity:
+    storage: "10Gi"
+  accessModes:
+    - "ReadWriteOnce"
+  claimRef:
+    name: "traefik-volumen-claim"
+  gcePersistentDisk:
+    fsType: "ext4"
+    pdName: traefik-persistent
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: "traefik-volumen-claim"
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi

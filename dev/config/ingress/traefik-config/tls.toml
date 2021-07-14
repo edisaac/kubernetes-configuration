@@ -1,0 +1,4 @@
+[[tls.certificates]]
+   certFile = "/app/traefik/certs/edisaac/tls.crt"
+   keyFile  = "/app/traefik/certs/edisaac/tls.key"
+   stores = ["default"]

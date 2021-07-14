@@ -1,0 +1,88 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: traefik
+spec:
+  loadBalancerIP: 35.243.147.46
+  ports:
+    - protocol: TCP
+      name: web
+      port: 80
+    - protocol: TCP
+      name: admin
+      port: 8080
+    - protocol: TCP
+      name: websecure
+      port: 443
+  selector:
+    app: traefik
+  externalTrafficPolicy: Local
+  type: LoadBalancer
+#Revisar
+#https://www.asykim.com/blog/deep-dive-into-kubernetes-external-traffic-policies
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: traefik-ingress-controller
+
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: traefik
+  labels:
+    app: traefik
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: traefik
+  template:
+    metadata:
+      labels:
+        app: traefik
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      serviceAccountName: traefik-ingress-controller
+      containers:
+        - name: traefik
+          image: registry.gitlab.com/developers.edisaac/devops/dockers/traefik:v2.0.2.b
+          imagePullPolicy: Always
+          ports:
+            - name: web
+              containerPort: 80
+            - name: websecure
+              containerPort: 443
+            - name: admin
+              containerPort: 8080
+          volumeMounts:
+            - name: config-volume
+              mountPath: /etc/traefik/traefik.toml
+              subPath: traefik.toml
+            - name: traefik-dinamic-config
+              mountPath: /app/traefik/dinamic
+            - name: edisaac-tls-secret
+              mountPath: /app/traefik/certs/edisaac/tls.crt
+              subPath: tls.crt
+            - name: edisaac-tls-secret
+              mountPath: /app/traefik/certs/edisaac/tls.key
+              subPath: tls.key
+            - name: acme-volume
+              mountPath: /app/traefik/certs/acme
+              subPath: letsencrypt
+      volumes:
+        - name: config-volume
+          configMap:
+            name: traefik-config
+        - name: traefik-dinamic-config
+          configMap:
+            name: traefik-dinamic-config
+        - name: edisaac-tls-secret
+          secret:
+            secretName: edisaac-tls-secret
+        - name: acme-volume
+          persistentVolumeClaim:
+            claimName: traefik-volumen-claim

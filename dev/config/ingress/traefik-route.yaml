@@ -1,0 +1,16 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-ingress-route
+spec:
+  entryPoints:
+    - web-secure
+  routes:
+    - match: Host(`traefikdev.edisaac.pe`)
+      kind: Rule
+      services:
+        - name: traefik
+          port: 8080
+  tls:
+    secretName: edisaac-tls-secret
+    #certResolver: letsencryptresolver

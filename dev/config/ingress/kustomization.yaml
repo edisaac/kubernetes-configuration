@@ -1,4 +1,4 @@
-apiVersion: kustomize.config.k8s.io/v1 #v1betax
+apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
@@ -14,3 +14,4 @@ configMapGenerator:
   - name: traefik-dinamic-config
     files:
       - traefik-config/tls.toml
+      - traefik-config/middlewares.toml

@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: traefik
 spec:
-  loadBalancerIP: 35.243.147.46
+  loadBalancerIP:  35.196.248.23
   ports:
     - protocol: TCP
       name: web

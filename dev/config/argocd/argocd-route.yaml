@@ -7,13 +7,13 @@ spec:
     - web-secure
   routes:
     - kind: Rule
-      match: Host(`argocddev.edisaac.pe`)
+      match: Host(`argocddev.edisaac.link`)
       priority: 10
       services:
         - name: argocd-server
           port: 80
     - kind: Rule
-      match: Host(`argocddev.edisaac.pe`) && Headers(`Content-Type`, `application/grpc`)
+      match: Host(`argocddev.edisaac.link`) && Headers(`Content-Type`, `application/grpc`)
       priority: 11
       services:
         - name: argocd-server

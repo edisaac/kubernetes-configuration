@@ -6,7 +6,7 @@ spec:
   entryPoints:
     - web-secure
   routes:
-    - match: Host(`ssodev.edisaac.pe`) && PathPrefix(`/adm-utm-web/`)
+    - match: Host(`ssodev.edisaac.link`) && PathPrefix(`/adm-utm-web/`)
       kind: Rule
       services:
         - name: adm-utm-web

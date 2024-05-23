@@ -6,7 +6,7 @@ spec:
   entryPoints:
     - web-secure
   routes:
-    - match: Host(`traefikdev.edisaac.pe`)
+    - match: Host(`traefikdev.edisaac.link`)
       kind: Rule
       services:
         - name: traefik

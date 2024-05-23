@@ -17,7 +17,7 @@
 
 # Enable ACME (Let's Encrypt): automatic SSL.
 [certificatesResolvers.letsencryptresolver.acme]
-  email = "emejia@edisaac.pe"
+  email = "emejia@edisaac.link"
   storage = "/app/traefik/certs/acme/acme.json"
   #staging acme server 
   #caserver="https://acme-staging-v02.api.letsencrypt.org/directory"

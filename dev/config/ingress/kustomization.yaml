@@ -14,4 +14,4 @@ configMapGenerator:
   - name: traefik-dinamic-config
     files:
       - traefik-config/tls.toml
-      - traefik-config/middlewares.toml
+      - traefik-config/middleware.toml

@@ -49,7 +49,7 @@ spec:
       serviceAccountName: traefik-ingress-controller
       containers:
         - name: traefik
-          image: registry.gitlab.com/developers.edisaac/devops/dockers/traefik:v2.0.2.b
+          image: edisaac/traefik:v2.0.2.b #CAMBIAR CON SU PROPIA CONSTRUCCION
           imagePullPolicy: Always
           ports:
             - name: web

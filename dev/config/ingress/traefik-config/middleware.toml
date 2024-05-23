@@ -1,5 +1,0 @@
-[http.middlewares]
-  [http.middlewares.oauth2-shield.forwardauth]
-     address = "https://wscomercialdev.edisaac.pe/seguridad/oauth2/nonspec/introspect/v1"
-  [http.middlewares.httpsonly.redirectScheme]
-    scheme = "https"

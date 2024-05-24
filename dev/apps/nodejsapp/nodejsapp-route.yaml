@@ -10,7 +10,7 @@ spec:
   tls:
     - secretName: edisaac-tls-secret
   rules:
-    - host: nodejsapp.edisaac.link
+    - host: nodejsappdev.edisaac.link
       http:
         paths:
           - path: /

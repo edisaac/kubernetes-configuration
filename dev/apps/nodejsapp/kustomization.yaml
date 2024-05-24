@@ -4,3 +4,5 @@ kind: Kustomization
 resources:
   - nodejsapp-route.yaml
   - nodejsapp.yaml
+  - nodejsapp-config.yaml
+

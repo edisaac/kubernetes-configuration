@@ -64,3 +64,6 @@ spec:
               memory: 100Mi
           ports:
             - containerPort: 3000
+          envFrom:
+            - configMapRef:
+                name: adm-utm-web-config

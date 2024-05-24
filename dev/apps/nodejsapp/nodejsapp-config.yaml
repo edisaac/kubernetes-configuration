@@ -1,0 +1,11 @@
+apiVersion: "v1"
+kind: "ConfigMap"
+metadata:
+  name: "nodejsapp-config"
+  labels:
+    app: "nodejsapp"
+data:
+  KEYCLOAK_URL: "https://ssodev.edisaac.link/auth/"
+  KEYCLOAK_REALM: "dev"
+  KEYCLOAK_CLIENT_ID: "nodejsapp"
+  API_URL: "https://wscomercialdev.edisaac.link/admin-utm-api"

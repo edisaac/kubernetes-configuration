@@ -1,21 +1,52 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-ingress-controller
-  namespace: default
   annotations:
-    cloud.google.com/load-balancer-type: "External"
-spec:
- #type: LoadBalancer
-  #loadBalancerIP: 34.23.45.121
-  ports:
-    - port: 80
-      targetPort: 80
-      protocol: TCP
-      name: http
-    - port: 443
-      targetPort: 443
-      protocol: TCP
-      name: https
-  selector:
+    cloud.google.com/neg: '{"ingress":true}'
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app.kubernetes.io/component":"controller","app.kubernetes.io/instance":"ingress-nginx","app.kubernetes.io/name":"ingress-nginx","app.kubernetes.io/part-of":"ingress-nginx","app.kubernetes.io/version":"1.10.1"},"name":"ingress-nginx-controller","namespace":"ingress-nginx"},"spec":{"externalTrafficPolicy":"Local","ipFamilies":["IPv4"],"ipFamilyPolicy":"SingleStack","ports":[{"appProtocol":"http","name":"http","port":80,"protocol":"TCP","targetPort":"http"},{"appProtocol":"https","name":"https","port":443,"protocol":"TCP","targetPort":"https"}],"selector":{"app.kubernetes.io/component":"controller","app.kubernetes.io/instance":"ingress-nginx","app.kubernetes.io/name":"ingress-nginx"},"type":"LoadBalancer"}}
+  creationTimestamp: "2024-05-24T14:16:16Z"
+  finalizers:
+  - service.kubernetes.io/load-balancer-cleanup
+  labels:
+    app.kubernetes.io/component: controller
+    app.kubernetes.io/instance: ingress-nginx
     app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/part-of: ingress-nginx
+    app.kubernetes.io/version: 1.10.1
+  name: ingress-nginx-controller
+  namespace: ingress-nginx
+  resourceVersion: "13552"
+  uid: 96ced893-7270-4094-90e8-8c525517d695
+spec:
+  allocateLoadBalancerNodePorts: true
+  clusterIP: 10.121.166.13
+  clusterIPs:
+  - 10.121.166.13
+  externalTrafficPolicy: Local
+  healthCheckNodePort: 31535
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - appProtocol: http
+    name: http
+    nodePort: 30568
+    port: 80
+    protocol: TCP
+    targetPort: http
+  - appProtocol: https
+    name: https
+    nodePort: 30375
+    port: 443
+    protocol: TCP
+    targetPort: https
+  selector:
+    app.kubernetes.io/component: controller
+    app.kubernetes.io/instance: ingress-nginx
+    app.kubernetes.io/name: ingress-nginx
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer: {}

@@ -36,8 +36,25 @@ spec:
       #  - name: regcred
       containers:
         - name: nodejsapp
-          image: edisaac/nodejsapp:c9f8dd3
+          image: edisaac/nodejsapp:c9f8dd3.2 
           imagePullPolicy: Always
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 40
+            periodSeconds: 10
+            timeoutSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            failureThreshold: 3
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
           resources:
             limits:
               cpu: 100m

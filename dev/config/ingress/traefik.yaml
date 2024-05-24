@@ -5,7 +5,7 @@ metadata:
   #namespace: ingress-nginx
 spec:
   type: LoadBalancer
-  loadBalancerIP: 34.148.23.97
+  #loadBalancerIP: 34.148.23.97
   selector:
     app.kubernetes.io/name: ingress-nginx
   ports:

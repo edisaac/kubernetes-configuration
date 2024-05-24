@@ -36,7 +36,7 @@ spec:
         - name: regcred
       containers:
         - name: adm-utm-web
-          image: registry.gitlab.com/developers.edisaac/marketing/admin-utm-web:1.0.1
+          image: edisaac/nodejsapp:c9f8dd3
           imagePullPolicy: Always
           readinessProbe:
             httpGet:

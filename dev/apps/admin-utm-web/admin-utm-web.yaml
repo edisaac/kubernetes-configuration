@@ -32,8 +32,8 @@ spec:
         app: adm-utm-web
         version: v1
     spec:
-      imagePullSecrets:
-        - name: regcred
+      #imagePullSecrets:
+      #  - name: regcred
       containers:
         - name: adm-utm-web
           image: edisaac/nodejsapp:c9f8dd3

@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: default
+spec:
+  syncWindows:
+  - kind: allow
+    schedule: '1 * * * *'
+    duration: 1h
+    applications:
+    - '*-dev'
+    manualSync: true
+
+  - kind: deny
+    schedule: '0 22 * * *'
+    timeZone: "America/Lima"
+    duration: 1h
+    applications:
+    - '*-prod'
+
+  - kind: allow
+    schedule: '0 23 * * *'
+    duration: 1h
+    namespaces:
+    - default
+    clusters:
+    - in-cluster

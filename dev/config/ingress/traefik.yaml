@@ -16,7 +16,7 @@ spec:
       port: 443
       targetPort: 443 
   type: LoadBalancer
-status:
-  loadBalancer:
-    ingress:
-      - ip: 34.148.23.97 #34.148.114.189        
+#status:
+#  loadBalancer:
+#    ingress:
+#      - ip: 34.148.23.97 #34.148.114.189        

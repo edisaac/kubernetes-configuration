@@ -6,8 +6,8 @@ metadata:
   annotations:
     cloud.google.com/load-balancer-type: "External"
 spec:
-  type: LoadBalancer
-  loadBalancerIP: 34.23.45.121
+ #type: LoadBalancer
+  #loadBalancerIP: 34.23.45.121
   ports:
     - port: 80
       targetPort: 80

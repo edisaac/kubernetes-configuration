@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: adm-utm-web-ingress
+  name: nodejsapp-ingress
   namespace: default
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
@@ -10,13 +10,13 @@ spec:
   tls:
     - secretName: edisaac-tls-secret
   rules:
-    - host: ssodev.edisaac.link
+    - host: nodejsapp.edisaac.link
       http:
         paths:
-          - path: /adm-utm-web(/|$)(.*)
+          - path: /nodejsapp(/|$)(.*)
             pathType: Prefix
             backend:
               service:
-                name: adm-utm-web
+                name: nodejsapp
                 port:
-                  number: 80
+                  number: 3000

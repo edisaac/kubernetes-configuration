@@ -67,4 +67,4 @@ spec:
           envFrom:
             - configMapRef:
                 name: nodejsapp-config
-  revisionHistoryLimit: 3 # Limita el historial de revisiones a 3
+  revisionHistoryLimit: 2 # Limita el historial de revisiones a 3

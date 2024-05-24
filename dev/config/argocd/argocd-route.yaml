@@ -3,14 +3,14 @@ kind: Ingress
 metadata:
   name: argocd-server
   #namespace: default
-  annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+  #annotations:
+  #  nginx.ingress.kubernetes.io/ssl-redirect: "true"
+  #  nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
 spec:
   tls:
     - hosts:
         - argocddev.edisaac.link
-      #secretName: your-tls-secret-name
+      secretName: edisaac-tls-secret
   rules:
     - host: argocddev.edisaac.link
       http:

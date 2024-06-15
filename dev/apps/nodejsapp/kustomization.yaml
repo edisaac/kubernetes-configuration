@@ -7,4 +7,4 @@ resources:
 - nodejsapp-config.yaml
 images:
 - name: edisaac/nodejsapp
-  newTag: develop-34757ed
+  newTag: develop-a3b6698

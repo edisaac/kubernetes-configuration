@@ -1,0 +1,10 @@
+apiVersion: "v1"
+kind: "ConfigMap"
+metadata:
+  name: "springboot-config"
+  labels:
+    app: "springboot"
+data:
+  DB_HOST: jdbc:postgresql://postgres:5432/students_db
+  DB_USER: postgres
+  DB_PASSWORD: postgres

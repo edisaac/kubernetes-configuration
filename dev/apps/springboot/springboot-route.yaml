@@ -19,4 +19,4 @@ spec:
               service:
                 name: springboot
                 port:
-                  number: 3000
+                  number: 8080

@@ -7,4 +7,4 @@ resources:
 - springboot-config.yaml
 images:
 - name: edisaac/springboot
-  newTag: latest
+  newTag: latest2

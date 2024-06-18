@@ -5,6 +5,6 @@ metadata:
   labels:
     app: "springboot"
 data:
-  DB_HOST: jdbc:postgresql://0.tcp.sa.ngrok.io:13422/students_db
+  DB_HOST: jdbc:postgresql://0.tcp.sa.ngrok.io:17349/students_db
   DB_USER: postgres
   DB_PASSWORD: postgres

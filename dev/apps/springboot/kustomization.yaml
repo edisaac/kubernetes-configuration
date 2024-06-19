@@ -7,4 +7,4 @@ resources:
 - springboot-config.yaml
 images:
 - name: edisaac/springboot
-  newTag: develop-fc52705
+  newTag: develop-138248c
